@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.21;
+
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+
+contract NFTSwap {
+  //订单结构体，owner：发起者，price：需要交易的价格
+  struct Order {
+        address owner;
+        uint256 price;
+  }
+  //key是address类型，value是映射。key是无符号整数位宽是256位，value是上面定义的Order结构体
+  //
+  mapping(address => mapping(uint256 => Order)) public orders;
+  //key是address类型，value是映射。key是无符号整数位宽是256位，value是布尔值。
+  //
+  mapping(address => mapping(uint256 => bool)) public isListed;
+
+}
