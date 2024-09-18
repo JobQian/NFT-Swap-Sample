@@ -17,8 +17,8 @@ contract NFTSwap {
     mapping(address => mapping(uint256 => bool)) public isListed;
 
     /*
-        卖家
-        挂单的functions：nftContract:nft合约；tokenId:nft产品的唯一标识；price：交易价格；
+        卖家 挂单的functions：
+        nftContract:nft合约；tokenId:nft产品的唯一标识；price：交易价格；
     */
     function list(
         address nftContract,
@@ -38,8 +38,8 @@ contract NFTSwap {
     }
 
     /*
-        卖家
-        撤单的function：nftContract:nft合约；tokenId:nft产品的唯一标识；
+        卖家 撤单的function：
+        nftContract:nft合约；tokenId:nft产品的唯一标识；
     */
     function revoke(
         address nftContract,
@@ -53,8 +53,8 @@ contract NFTSwap {
     }
 
     /*
-        卖家
-        修改价格的function：nftContract:nft合约；tokenId:nft产品的唯一标识；price：交易价格；
+        卖家 修改价格的function：
+        nftContract:nft合约；tokenId:nft产品的唯一标识；price：交易价格；
     */
     function update(
         address nftContract,
@@ -69,8 +69,8 @@ contract NFTSwap {
     }
 
     /*
-        买家
-        购买nft藏品的function：nftContract:nft合约；tokenId:nft产品的唯一标识；
+        买家 购买nft藏品的function：
+        nftContract:nft合约；tokenId:nft产品的唯一标识；
     */
     function purchase(
         address nftContract,
