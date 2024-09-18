@@ -88,8 +88,9 @@ contract NFTSwap {
         */
         nft.safeTransferFrom(order.owner, msg.sender, tokenId);
 
-        // 将以太币转给之前拥有nft藏品的卖家的账户，先将卖家账户地址转化为可接受以太币的类型payable
-        payable(order.owner).transfer(order.price);
+        // 将以太币转给之前拥有nft藏品的卖家的账户，先将卖家账户地址转化为可接受以太币的类型payable,使用call函数，gas无限制
+        (bool success, ) = payable(order.owner).call{value: order.price}("");
+        require(success, "Transfer failed");
         // 交易完成将订单从订单列表中删除
         delete orders[nftContract][tokenId];
         // 挂起的记录改为false
